@@ -1,5 +1,28 @@
-bitzeebot.github.com
-====================
+Bit-zee Bot
+===========
+Bit-zee Bot is a robot made for [Khan Academy](http://www.khanacademy.org/science/Projects/Bit-zee) out of house hold
+items, an Arduino board and a motor controller. Here is a video of 
+[Bit-zee Bot in action](http://youtu.be/CcziDRr5Myc "Bit-zee Bot").
+
+
+Bit-zee Code
+============
+
+Bit-zee Code is a programming language for controlling Bit-zee Bot. Bit-zee Code is based on Graffiti Code a language
+framework developed at [Art Compiler](http://artcompiler.org "Art Compiler"). Graffiti Code uses a semantic subset of
+ML, and a syntax that is light on punctuation. Languages are created in Graffiti Code by defining a primitive 
+vocabulary made up of events and functions. User programs define functions that handle the events and call the 
+primitive functions.
+
+
+
+##Sample Bit-zee Code##
+
+
+def **flash lights**. **blink** 100ms 1 0 0. **blink** 100ms 0 1 0. **blink** 100ms 0 0 1.
+
+def **remote 1**. **flash** lights.
+
 
 ##Event handlers##
 
