@@ -18,10 +18,16 @@ primitive functions.
 
 ##Sample Bit-zee Code##
 
+_(This code defines two handlers for remote control events. Pressing button 1 on the remote causes the robot's 
+lights to flash. Pressing button 2 causes the robot to spin counter clockwise for 3 seconds.)_
 
-def **flash lights**. **blink** 100ms 1 0 0. **blink** 100ms 0 1 0. **blink** 100ms 0 0 1.
+def **remote 1**. **flash lights**.
 
-def **remote 1**. **flash** lights.
+def **remote 2**. **spin left**.
+
+def **flash lights**. **blink 100ms 1 0 0**. **blink 100ms 0 1 0**. **blink 100ms 0 0 1**.
+
+def **spin left**. **power full**. **forward right**. **backward left**. **delay 3s**. **stop**.
 
 
 ##Event handlers##
