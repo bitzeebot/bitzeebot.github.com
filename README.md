@@ -1,6 +1,6 @@
 Bit-zee Bot
 ===========
-Bit-zee Bot is a robot made for [Khan Academy](http://www.khanacademy.org/science/Projects/Bit-zee) out of house hold
+Bit-zee Bot is a robot made for [Khan Academy](http://www.khanacademy.org/science/Projects/Bit-zee) out of household
 items, an Arduino board and a motor controller. Here is a video of 
 [Bit-zee Bot in action](http://youtu.be/CcziDRr5Myc "Bit-zee Bot").
 
