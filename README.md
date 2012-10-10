@@ -109,11 +109,11 @@ def **delay t**.           _(stop execution for time t)_
 
 def **random min max**.    _(return a random number between min and max)_
 
-def **calibrate l:list**.  _(calibrate the power send to wheels base on list)_
+def **calibrate l:list**.  _(calibrate the power sent to wheels based on given list)_
 
-def **accelerate n**.      _(increase power by n)_
+def **accelerate n**.      _(increase forward power by n in the range of -255 and 255)_
 
-def **decelerate n**.      _(decrease power by n)_
+def **decelerate n**.      _(decrease forward power by n in the range of -255 and 255)_
 
 def **image record**.      _(take picture)_
 
