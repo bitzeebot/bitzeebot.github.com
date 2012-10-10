@@ -5,8 +5,7 @@ items, an Arduino board and a motor controller. Here is a video of
 [Bit-zee Bot in action](http://youtu.be/CcziDRr5Myc "Bit-zee Bot").
 
 
-Bit-zee Code
-============
+##Bit-zee Code##
 
 Bit-zee Code is a programming language for controlling Bit-zee Bot. Bit-zee Code is based on Graffiti Code a language
 framework developed at [Art Compiler](http://artcompiler.org "Art Compiler"). Graffiti Code uses a semantic subset of
@@ -16,7 +15,7 @@ primitive functions.
 
 
 
-##Sample Bit-zee Code##
+###Sample Bit-zee Code###
 
 _(This code defines two handlers for remote control events. Pressing button 1 on the remote causes the robot's 
 lights to flash. Pressing button 2 causes the robot to spin counter clockwise for 3 seconds.)_
@@ -30,7 +29,7 @@ def **flash lights**. **blink 100ms 1 0 0**. **blink 100ms 0 1 0**. **blink 100m
 def **spin left**. **power full**. **forward right**. **backward left**. **delay 3s**. **stop**.
 
 
-##Event handlers##
+###Event handlers###
 
 def **remote 1**.
 
@@ -72,9 +71,9 @@ def **bump front.**
 
 def **bump back.**
 
-def **time.** 
+def **time t.** 
 
-##Primitive functions##
+###Primitive functions###
 
 def **forward**.  _(turn both wheels forward)_
 
