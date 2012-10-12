@@ -15,25 +15,11 @@ primitive functions.
 
 
 
-###Sample Bit-zee Code###
-
-_(This code defines two handlers for remote control events. Pressing button 1 on the remote causes the robot's 
-lights to flash. Pressing button 2 causes the robot to spin counter clockwise for 3 seconds.)_
-
-def **remote 1**. **flash lights**.
-
-def **remote 2**. **spin left**.
-
-def **flash lights**. **blink 100ms 1 0 0**. **blink 100ms 0 1 0**. **blink 100ms 0 0 1**.
-
-def **spin left**. **power full**. **forward right**. **backward left**. **delay 3s**. **stop**.
-
-
 ###Event handlers###
 
-def **remote 1**.
+fun **remote 1**.
 
-def **remote 2.**
+fun **remote 2.**
 
 def **remote 3.**
 
@@ -122,3 +108,201 @@ def **sound record**.      _(start / stop recording sound)_
 def **sound play**.        _(play sound)_
 
 
+###UnitOne in Bit-zee Lang###
+
+~~~
+fun flashLights = 
+  blink 100ms high low low.
+	blink 100ms low high low.
+	blink 100ms low low high.
+
+	blink 300ms high low high.
+	blink 300ms high high low.
+	blink 300ms low high high.
+
+	blink 100ms high low low.
+	blink 100ms low high low.
+	blink 100ms low low high.
+
+	blink 100ms high low high.
+	blink 100ms high high low.
+	blink 100ms low high high.
+
+	blink 300ms high low low.
+	blink 300ms low high low.
+	blink 300ms low low high.
+.
+
+fun powerSlide left =
+	speed full.
+    forward 2 seconds.
+    spin left.
+    delay 500 ms.
+    backward 300 ms.
+.
+    
+fun powerSlide right =
+	speed full.
+    forward 2 seconds.
+    spin right.
+    delay 500 ms.
+    backward 300 ms.
+.
+    
+fun figureEight =
+  	forward left.
+    forward right.
+    blink 300ms high low low.
+    blink 300ms low high low.
+    blink 300ms low low high.
+    stop left.
+    blink 300ms high low low.
+    blink 300ms low high low.
+    blink 300ms low low high.
+	  forward left.    
+    blink 300ms high low low.
+    blink 300ms low high low.
+    blink 300ms low low high.
+	  stop right.
+    blink 300ms high low low.
+    blink 300ms low high low.
+    blink 300ms low low high.
+	  forward right.
+    blink 300ms high low low.
+    blink 300ms low high low.
+    blink 300ms low low high.
+    stop left.
+    stop right.
+.
+    
+fun wiggle n =
+  	if n is zero 
+    then
+    	flashLights.
+    else
+    	speed random full minus 20 full.
+        spin left.
+        delay random 100 200.
+        spin right.
+        delay random 100 200.
+        wiggle n minus one.
+.
+
+fun waddleBackwardLeft =
+	  stop right.
+    backward left.
+    blink 300ms high low low.
+    stop left.
+    backward right.
+    blink 300ms low high low.
+    stop right.
+    backward left.
+    blink 300ms low low high.
+    stop left.
+    backward right.
+    blink 300ms low high low.
+    stop right.
+.
+
+fun waddleBackwardRight =
+	  stop left.
+    backward right.
+    blink 300ms high low low.
+    stop right.
+    backward left.
+    blink 300ms low high low.
+    stop left.
+    backward right.
+    blink 300ms low low high.
+    stop right.
+    backward left.
+    blink 300ms low high low.
+    stop left.
+.
+
+fun waddleBackward n =
+    if n is zero
+    then
+      	none.
+    else
+    	  speed full.
+        waddleBackwardLeft.
+        blink 300ms high low low.
+        blink 300ms low high low.
+        blink 300ms low low high.
+        waddleBackwardRight.
+        blink 300ms high low low.
+        blink 300ms low high low.
+        blink 300ms low low high.
+        waddleBackward n minus one.
+.
+        
+        
+fun waddleForwardLeft =
+	  stop right.
+    forward left.
+    blink 300ms high low low.
+    stop left.
+    forward right.
+    blink 300ms low high low.
+    stop right.
+    forward left.
+    blink 300ms low low high.
+    stop left.
+    forward right.
+    blink 300ms low high low.
+    stop right.
+.
+
+fun waddleForwardRight =
+	  stop left.
+    forward right.
+    blink 300ms high low low.
+    stop right.
+    forward left.
+    blink 300ms low high low.
+    stop left.
+    forward right.
+    blink 300ms low low high.
+    stop right.
+    forward left.
+    blink 300ms low high low.
+    stop left.
+.
+
+fun waddleForward n =
+    if n is zero
+    then
+      	none.
+    else
+    	  speed full.
+        waddleForwardLeft.
+        blink 300ms high low low.
+        blink 300ms low high low.
+        blink 300ms low low high.
+        waddleForwardRight.
+        blink 300ms high low low.
+        blink 300ms low high low.
+        blink 300ms low low high.
+        waddleForward n minus one.
+.
+
+fun remote 1 = waddleForward 5..
+fun remote 2 = wiggle 5..
+fun remote 3 = powerSlide right..
+fun remote 4 = powerSlide left..
+fun remote 5 = spin left. delay 3 seconds. stop all..
+fun remote 6 = spin right. delay 3 seconds. stop all..
+fun remote 7 = forward right..
+fun remote 8 = figureEight..
+fun remote 9 = waddleBackward 4..
+fun remote dot = recordSound..
+fun remote play = playSound..
+fun remote rew = backwardFaster..
+fun remote rec = recordImage..
+fun remote ff = forwardFaster..
+fun remote pause = stop right. stop left..
+fun remote pwr = flashLights..
+fun bumper back = playSound. waddleForward 4. flashLights..
+fun bumper front = playSound. waddleBacwkard 4. flashLights..
+~~~
