@@ -17,93 +17,93 @@ primitive functions.
 
 ###Event handlers###
 
-fun **remote 1**.
+let **remote 1..**
 
-fun **remote 2.**
+let **remote 2..**
 
-fun **remote 3.**
+let **remote 3.**
 
-fun **remote 4.**
+let **remote 4..**
 
-fun **remote 5.**
+let **remote 5..**
 
-fun **remote 6.**
+let **remote 6..**
 
-fun **remote 7.**
+let **remote 7..**
 
-fun **remote 8.**
+let **remote 8..**
 
-fun **remote 9.**
+let **remote 9..**
 
-fun **remote dot.**
+let **remote dot..**
 
-fun **remote 0.**
+let **remote 0..**
 
-fun **remote enter.**
+let **remote enter..**
 
-fun **remote rew.**
+let **remote rew..**
 
-fun **remote play.**
+let **remote play..**
 
-fun **remote ff.**
+let **remote ff..**
 
-fun **remote rec.**
+let **remote rec..**
 
-fun **remote stop.**
+let **remote stop..**
 
-fun **remote pause.**
+let **remote pause..**
 
-fun **bumper front.**
+let **bumper front..**
 
-fun **bumper back.**
+let **bumper back..**
 
 ###Primitive functions###
 
-fun **forward**.  _(turn both wheels forward)_
+let **forward** =  _(turn both wheels forward)_
 
-fun **forward left**. _(turn left wheel forward)_
+let **forward left** = _(turn left wheel forward)_
 
-fun **forward right**. _(turn right wheel forward)_
+let **forward right** = _(turn right wheel forward)_
 
-fun **backward**. _(turn both wheels backward)_
+let **backward** = _(turn both wheels backward)_
 
-fun **backward left**.  _(turn left wheel backward)_
+let **backward left** =  _(turn left wheel backward)_
 
-fun **backword right**. _(turn right wheel backward)_
+let **backword right** = _(turn right wheel backward)_
 
-fun **stop**. _(stop sending current to both wheels)_
+let **stop** = _(stop sending current to both wheels)_
 
-fun **stop left**. _(stop sending current to left wheel)_
+let **stop left** = _(stop sending current to left wheel)_
 
-fun **stop right**. _(stop sending current to right while)_
+let **stop right** = _(stop sending current to right while)_
 
-fun **power full**.        _(set the speed to full power)_
+let **power full** =        _(set the speed to full power)_
 
-fun **power half**.        _(set the speed to half power)_
+let **power half** =        _(set the speed to half power)_
 
-fun **power none**.        _(set the spped to zero power)_
+let **power none** =        _(set the spped to zero power)_
 
-fun **power n:int**.       _(set the speed to n ranging from 0 to 255)_
+let **power n:int** =       _(set the speed to n ranging from 0 to 255)_
 
-fun **blink t**.           _(turn lights on for time t and then off for time t)_
+let **blink t** =           _(turn lights on for time t and then off for time t)_
 
-fun **blink t r g b**.     _(blink t with the given rgb values)_ 
+let **blink t r g b** =     _(blink t with the given rgb values)_ 
 
-fun **delay t**.           _(stop execution for time t)_
+let **delay t** =           _(stop execution for time t)_
 
-fun **random min max**.    _(return a random number between min and max)_
+let **random min max** =    _(return a random number between min and max)_
 
-fun **calibrate l:list**.  _(calibrate the power sent to wheels based on given list)_
+let **calibrate l:list** =  _(calibrate the power sent to wheels based on given list)_
 
-fun **accelerate n**.      _(increase forward power by n in the range of -255 and 255)_
+let **accelerate n** =      _(increase forward power by n in the range of -255 and 255)_
 
-fun **decelerate n**.      _(decrease forward power by n in the range of -255 and 255)_
+let **decelerate n** =      _(decrease forward power by n in the range of -255 and 255)_
 
-fun **image record**.      _(take picture)_
+let **image record** =      _(take picture)_
 
-fun **sound record**.      _(start / stop recording sound)_
+let **sound record** =      _(start / stop recording sound)_
 
-fun **sound play**.        _(play sound)_
+let **sound play** =        _(play sound)_
 
 
 ###UnitOne in Bit-zee Code###
@@ -112,7 +112,7 @@ The following is an approximation of what the code used in the original Bit-zee 
 looks like in Bit-zee Code.
 
 ~~~
-fun flashLights = 
+let flashLights = 
     blink 100ms high low low.
     blink 100ms low high low.
     blink 100ms low low high.
@@ -128,25 +128,25 @@ fun flashLights =
     blink 300ms high low low.
     blink 300ms low high low.
     blink 300ms low low high.
-.
+    .
 
-fun powerSlide left =
+let powerSlide left =
     speed full.
     forward 2 seconds.
     spin left.
     delay 500 ms.
     backward 300 ms.
-.
+    .
     
-fun powerSlide right =
+let powerSlide right =
     speed full.
     forward 2 seconds.
     spin right.
     delay 500 ms.
     backward 300 ms.
-.
+    .
     
-fun figureEight =
+let figureEight =
     forward left.
     forward right.
     blink 300ms high low low.
@@ -170,12 +170,12 @@ fun figureEight =
     blink 300ms low low high.
     stop left.
     stop right.
-.
+    .
     
-fun wiggle n =
+let wiggle n =
     if n is zero 
     then
-	flashLights.
+	flashLights
     else
         speed random full minus 20 full.
         spin left.
@@ -183,9 +183,9 @@ fun wiggle n =
         spin right.
         delay random 100 200.
         wiggle n minus one.
-.
+    .
 
-fun waddleBackwardLeft =
+let waddleBackwardLeft =
     stop right.
     backward left.
     blink 300ms high low low.
@@ -199,9 +199,9 @@ fun waddleBackwardLeft =
     backward right.
     blink 300ms low high low.
     stop right.
-.
+    .
 
-fun waddleBackwardRight =
+let waddleBackwardRight =
     stop left.
     backward right.
     blink 300ms high low low.
@@ -215,12 +215,12 @@ fun waddleBackwardRight =
     backward left.
     blink 300ms low high low.
     stop left.
-.
+    .
 
-fun waddleBackward n =
+let waddleBackward n =
     if n is zero
     then
-        none.
+        none
     else
         speed full.
         waddleBackwardLeft.
@@ -232,10 +232,10 @@ fun waddleBackward n =
         blink 300ms low high low.
         blink 300ms low low high.
         waddleBackward n minus one.
-.
+    .
         
         
-fun waddleForwardLeft =
+let waddleForwardLeft =
     stop right.
     forward left.
     blink 300ms high low low.
@@ -249,9 +249,9 @@ fun waddleForwardLeft =
     forward right.
     blink 300ms low high low.
     stop right.
-.
-
-fun waddleForwardRight =
+    .
+ 
+let waddleForwardRight =
     stop left.
     forward right.
     blink 300ms high low low.
@@ -265,12 +265,12 @@ fun waddleForwardRight =
     forward left.
     blink 300ms low high low.
     stop left.
-.
+    .
 
-fun waddleForward n =
+let waddleForward n =
     if n is zero
     then
-        none.
+        none
     else
         speed full.
         waddleForwardLeft.
@@ -282,24 +282,24 @@ fun waddleForward n =
         blink 300ms low high low.
         blink 300ms low low high.
         waddleForward n minus one.
-.
+    .
 
-fun remote 1 = waddleForward 5..
-fun remote 2 = wiggle 5..
-fun remote 3 = powerSlide right..
-fun remote 4 = powerSlide left..
-fun remote 5 = spin left. delay 3 seconds. stop all..
-fun remote 6 = spin right. delay 3 seconds. stop all..
-fun remote 7 = forward right..
-fun remote 8 = figureEight..
-fun remote 9 = waddleBackward 4..
-fun remote dot = recordSound..
-fun remote play = playSound..
-fun remote rew = backwardFaster..
-fun remote rec = recordImage..
-fun remote ff = forwardFaster..
-fun remote pause = stop right. stop left..
-fun remote pwr = flashLights..
-fun bumper back = playSound. waddleForward 4. flashLights..
-fun bumper front = playSound. waddleBacwkard 4. flashLights..
+let remote 1 = waddleForward 5..
+let remote 2 = wiggle 5..
+let remote 3 = powerSlide right..
+let remote 4 = powerSlide left..
+let remote 5 = spin left. delay 3 seconds. stop all..
+let remote 6 = spin right. delay 3 seconds. stop all..
+let remote 7 = forward right..
+let remote 8 = figureEight..
+let remote 9 = waddleBackward 4..
+let remote dot = recordSound..
+let remote play = playSound..
+let remote rew = backwardFaster..
+let remote rec = recordImage..
+let remote ff = forwardFaster..
+let remote pause = stop right. stop left..
+let remote pwr = flashLights..
+let bumper back = playSound. waddleForward 4. flashLights..
+let bumper front = playSound. waddleBacwkard 4. flashLights..
 ~~~
